@@ -37,8 +37,8 @@
             this.TitleLb.AutoSize = true;
             this.TitleLb.BackColor = System.Drawing.Color.Transparent;
             this.TitleLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLb.ForeColor = System.Drawing.Color.DarkOrange;
-            this.TitleLb.Location = new System.Drawing.Point(262, 75);
+            this.TitleLb.ForeColor = System.Drawing.Color.Cornsilk;
+            this.TitleLb.Location = new System.Drawing.Point(4, 22);
             this.TitleLb.Name = "TitleLb";
             this.TitleLb.Size = new System.Drawing.Size(450, 63);
             this.TitleLb.TabIndex = 0;
@@ -47,15 +47,15 @@
             // textInput
             // 
             this.textInput.BackColor = System.Drawing.SystemColors.Window;
-            this.textInput.Location = new System.Drawing.Point(347, 153);
+            this.textInput.Location = new System.Drawing.Point(15, 99);
             this.textInput.Multiline = true;
             this.textInput.Name = "textInput";
-            this.textInput.Size = new System.Drawing.Size(259, 130);
+            this.textInput.Size = new System.Drawing.Size(344, 147);
             this.textInput.TabIndex = 1;
             // 
             // submitBtn
             // 
-            this.submitBtn.Location = new System.Drawing.Point(347, 289);
+            this.submitBtn.Location = new System.Drawing.Point(52, 252);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(259, 23);
             this.submitBtn.TabIndex = 2;
@@ -67,11 +67,11 @@
             // 
             this.aboutUsBtn.AutoSize = true;
             this.aboutUsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.aboutUsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutUsBtn.ForeColor = System.Drawing.Color.DarkOrange;
-            this.aboutUsBtn.Location = new System.Drawing.Point(12, 548);
+            this.aboutUsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutUsBtn.ForeColor = System.Drawing.Color.Cornsilk;
+            this.aboutUsBtn.Location = new System.Drawing.Point(826, 58);
             this.aboutUsBtn.Name = "aboutUsBtn";
-            this.aboutUsBtn.Size = new System.Drawing.Size(68, 17);
+            this.aboutUsBtn.Size = new System.Drawing.Size(97, 25);
             this.aboutUsBtn.TabIndex = 7;
             this.aboutUsBtn.Text = "About US";
             // 
@@ -79,11 +79,11 @@
             // 
             this.ourMissionBtn.AutoSize = true;
             this.ourMissionBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ourMissionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ourMissionBtn.ForeColor = System.Drawing.Color.DarkOrange;
-            this.ourMissionBtn.Location = new System.Drawing.Point(858, 548);
+            this.ourMissionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ourMissionBtn.ForeColor = System.Drawing.Color.Cornsilk;
+            this.ourMissionBtn.Location = new System.Drawing.Point(824, 22);
             this.ourMissionBtn.Name = "ourMissionBtn";
-            this.ourMissionBtn.Size = new System.Drawing.Size(83, 17);
+            this.ourMissionBtn.Size = new System.Drawing.Size(117, 25);
             this.ourMissionBtn.TabIndex = 8;
             this.ourMissionBtn.Text = "Our Mission";
             // 
@@ -92,7 +92,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Red;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(391, 350);
+            this.label1.Location = new System.Drawing.Point(97, 299);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 25);
             this.label1.TabIndex = 9;
