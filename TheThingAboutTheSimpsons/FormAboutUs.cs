@@ -21,6 +21,7 @@ namespace TheThingAboutTheSimpsons
 
         private void button1_Click(object sender, EventArgs e)
         {
+            mainMenu.setPosition(this);
             this.Hide();
             mainMenu.Show();
         }
@@ -29,7 +30,7 @@ namespace TheThingAboutTheSimpsons
         {
             position.X = mainMenu.Location.X;
             position.Y = mainMenu.Location.Y;
-            this.Location = new Point(position.X, position.Y);
+            this.Location = position;
         }
 
         public void setMainMenu(MainForm mainMenu)

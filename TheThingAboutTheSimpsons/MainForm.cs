@@ -14,6 +14,7 @@ namespace TheThingAboutTheSimpsons {
         private FormOurMission ourMission = new FormOurMission();
         private List<EpisodeViewer> resultsEpViews;
         private int episodeIt;
+        private Point position = new Point();
         public MainForm() {
             InitializeComponent();
             ourMission.setMainMenu(this);
@@ -40,6 +41,11 @@ namespace TheThingAboutTheSimpsons {
             ourMission.Show();
         }
 
+        public void setPosition(Form lastForm) {
+            position.X = lastForm.Location.X;
+            position.Y = lastForm.Location.Y;
+            this.Location = position;
+        }
         public void LoadEpisodes() {
 
         }
