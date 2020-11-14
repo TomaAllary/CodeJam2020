@@ -32,11 +32,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.resultPanel = new System.Windows.Forms.Panel();
 
-            this.nextBtn = new System.Windows.Forms.Button();
-            this.prevBtn = new System.Windows.Forms.Button();
             this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
 
-            this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
 
@@ -124,15 +121,6 @@
             this.resultPanel.Size = new System.Drawing.Size(344, 240);
             this.resultPanel.TabIndex = 11;
             this.resultPanel.Visible = false;
-            // 
-            // nextBtn
-            // 
-            this.nextBtn.Location = new System.Drawing.Point(279, 21);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(61, 191);
-            this.nextBtn.TabIndex = 3;
-            this.nextBtn.Text = "next";
-            this.nextBtn.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
