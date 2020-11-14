@@ -20,8 +20,11 @@ namespace TheThingAboutTheSimpsons {
         private List<EpisodeViewer> resultsEpViews;
         private int episodeIt;
         private Point position = new Point();
+        List<Episode> episodes = new List<Episode>();
 
         public MainForm() {
+            LoadEpisodes();
+
             InitializeComponent();
             ourMission.setMainMenu(this);
             ourMission.setPosition();
@@ -58,7 +61,44 @@ namespace TheThingAboutTheSimpsons {
             this.Location = position;
         }
         public void LoadEpisodes() {
+            string text = System.IO.File.ReadAllText("summaries.txt");
+            /*List<string> epDate = new List<string>();
+            List<string[]> epWords = new List<string[]>();*/
 
+            text = text.ToLower();
+            int it = -1;
+            while (text != "") {
+                string line = text.Substring(0, text.IndexOf('\n'));
+                if (line.Contains('#')) {
+                    it++;
+                    
+                    var i = line.IndexOf('#');
+                    string epName = line.Substring(0, i - 2);
+                    string date = line.Substring(line.IndexOf('\t') + 1).TrimEnd('\r');
+
+                    episodes.Add(new Episode(epName, date, i + 1));
+                }
+                else {
+                    //Console.WriteLine(line);
+                    string[] split = line.Split(new Char[] { ' ', '(', ')', ',', '.', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (split[0] != "notes:" && split[0] != "note:" && split[0] != "note " && split[0] != "notes ") {
+                        episodes[it].summary = split;
+                    }
+                }
+                text = text.Remove(0, text.IndexOf('\n') + 1);
+            }
+            int a = 0; //useless
+            ;
+
+            /*
+            test.Add("foo");
+            test.Add("bar");
+            
+            epWords.Add(test);
+            Console.WriteLine(epWords[0][0]); //prints "foo"
+            Console.WriteLine(epWords[0][1]); // prints "bar"
+            while (true) ;
+            */
         }
 
         public void ParseInput(string text) {

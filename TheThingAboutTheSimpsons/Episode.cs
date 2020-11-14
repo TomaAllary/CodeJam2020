@@ -9,12 +9,12 @@ namespace TheThingAboutTheSimpsons {
         public string Title { get; set; }
         public int Season { get; set; }
         public int EpisodeNb { get; set; }
-        public DateTime Date { get; set; }
-        public string Summary { get; private set; }
+        public string Date { get; set; }
+        public string[] summary;
 
-        public Episode (string title, int season, int episodeNb) {
+        public Episode (string title, string date, int episodeNb) {
             Title = title;
-            Season = season;
+            Date = date;
             EpisodeNb = episodeNb;
         }
 
@@ -26,12 +26,17 @@ namespace TheThingAboutTheSimpsons {
             episodeViewer.seasonNbLb.Text = Season.ToString();
 
             if (Date != null)
-                episodeViewer.dateLb.Text = Date.ToString("dddd, dd MMMM yyyy");
+                episodeViewer.dateLb.Text = Date;
             else
                 episodeViewer.dateLb.Text = "";
 
-            if (Summary != null)
-                episodeViewer.summaryLb.Text = Summary;
+            if (summary != null) {
+                string text = "";
+                foreach(var x in summary) {
+                    text += " " + x;
+                }
+                episodeViewer.summaryLb.Text = text;
+            }
             else
                 episodeViewer.summaryLb.Text = "";
 
