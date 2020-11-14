@@ -28,7 +28,7 @@
             this.episodeNbLb = new System.Windows.Forms.Label();
             this.seasonNbLb = new System.Windows.Forms.Label();
             this.dateLb = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.summaryLb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,19 +78,19 @@
             this.dateLb.TabIndex = 4;
             this.dateLb.Text = "date";
             // 
-            // label1
+            // summaryLb
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Silver;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Location = new System.Drawing.Point(11, 79);
-            this.label1.MaximumSize = new System.Drawing.Size(180, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 143);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1\r\nsddsasdasdasdasasd\r\nasdddddddddads\r\nsdssssssssssssssssssssqqqqqqqqqq\r\na\r\n" +
+            this.summaryLb.AutoSize = true;
+            this.summaryLb.BackColor = System.Drawing.Color.Silver;
+            this.summaryLb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summaryLb.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.summaryLb.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.summaryLb.Location = new System.Drawing.Point(11, 79);
+            this.summaryLb.MaximumSize = new System.Drawing.Size(180, 144);
+            this.summaryLb.Name = "summaryLb";
+            this.summaryLb.Size = new System.Drawing.Size(178, 143);
+            this.summaryLb.TabIndex = 5;
+            this.summaryLb.Text = "label1\r\nsddsasdasdasdasasd\r\nasdddddddddads\r\nsdssssssssssssssssssssqqqqqqqqqq\r\na\r\n" +
     "a\r\na\r\na\r\na\r\na\r\na\r\n";
             // 
             // pictureBox1
@@ -111,7 +111,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.summaryLb);
             this.Controls.Add(this.dateLb);
             this.Controls.Add(this.seasonNbLb);
             this.Controls.Add(this.episodeNbLb);
@@ -126,11 +126,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Label episodeNbLb;
-        private System.Windows.Forms.Label seasonNbLb;
-        private System.Windows.Forms.Label dateLb;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label Title;
+        public System.Windows.Forms.Label episodeNbLb;
+        public System.Windows.Forms.Label seasonNbLb;
+        public System.Windows.Forms.Label dateLb;
+        public System.Windows.Forms.Label summaryLb;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

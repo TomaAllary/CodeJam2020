@@ -41,5 +41,9 @@ namespace TheThingAboutTheSimpsons {
         public void ParseInput(string text) {
 
         }
+
+        public void showResults() {
+
+        }
     }
 }
