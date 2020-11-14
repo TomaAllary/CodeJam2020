@@ -30,7 +30,7 @@ namespace TheThingAboutTheSimpsons
                 string htmlCode = client.DownloadString("http://www.synonymy.com/synonym.php?word=" + this.word + "&x=0&y=0");
                 string[] test = htmlCode.Split(new string[] { "word=" }, StringSplitOptions.None);                             
                 List<string> wordsFinal = new List<string>();
-                for (int i = 1; i <= test.Length; i++)
+                for (int i = 1; i < test.Length; i++)
                     listSynonyms.Add(new Word(test[i].Substring(0, test[i].IndexOf('>') - 1), true));
                 ;
             }

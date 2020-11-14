@@ -35,7 +35,7 @@ namespace TheThingAboutTheSimpsons {
                 if (!BlackListedWords.Contains(s.ToLower()))
                     Sentence.Add(new Word(s, false));
             }
-
+            ;
         }
 
         private void aboutUsBtn_Click(object sender, EventArgs e)
