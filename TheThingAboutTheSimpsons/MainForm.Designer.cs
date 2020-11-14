@@ -1,5 +1,5 @@
 ﻿namespace TheThingAboutTheSimpsons {
-    partial class Form1 {
+    partial class MainForm {
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
@@ -36,11 +36,11 @@
             // 
             this.TitleLb.AutoSize = true;
             this.TitleLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLb.Location = new System.Drawing.Point(388, 51);
+            this.TitleLb.Location = new System.Drawing.Point(256, 49);
             this.TitleLb.Name = "TitleLb";
-            this.TitleLb.Size = new System.Drawing.Size(136, 63);
+            this.TitleLb.Size = new System.Drawing.Size(450, 63);
             this.TitleLb.TabIndex = 0;
-            this.TitleLb.Text = "Titre";
+            this.TitleLb.Text = "Did They d\'OH it?";
             // 
             // textInput
             // 
@@ -94,10 +94,11 @@
             this.ourMissionBtn.TabIndex = 8;
             this.ourMissionBtn.Text = "Our Mission";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(953, 581);
             this.Controls.Add(this.ourMissionBtn);
             this.Controls.Add(this.aboutUsBtn);
@@ -107,7 +108,7 @@
             this.Controls.Add(this.textInput);
             this.Controls.Add(this.TitleLb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
