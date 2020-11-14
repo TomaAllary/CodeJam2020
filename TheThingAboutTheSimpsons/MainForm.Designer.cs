@@ -116,9 +116,9 @@
             this.Controls.Add(this.textInput);
             this.Controls.Add(this.TitleLb);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "simpsonComparator";
             this.ResumeLayout(false);
             this.PerformLayout();
 

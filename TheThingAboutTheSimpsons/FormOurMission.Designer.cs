@@ -80,9 +80,9 @@ namespace TheThingAboutTheSimpsons
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOurMission";
-            this.Text = "FormOurMission";
+            this.Text = "simpsonsComparator/OurMission";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
