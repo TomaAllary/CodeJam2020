@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.resultPanel = new System.Windows.Forms.Panel();
-            this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
-            this.prevBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
+            this.prevBtn = new System.Windows.Forms.Button();
+            this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.resultPanel.SuspendLayout();
             this.SuspendLayout();
@@ -116,14 +116,14 @@
             this.resultPanel.Size = new System.Drawing.Size(344, 240);
             this.resultPanel.TabIndex = 11;
             // 
-            // episodeViewer1
+            // nextBtn
             // 
-            this.episodeViewer1.BackColor = System.Drawing.Color.Transparent;
-            this.episodeViewer1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("episodeViewer1.BackgroundImage")));
-            this.episodeViewer1.Location = new System.Drawing.Point(70, 2);
-            this.episodeViewer1.Name = "episodeViewer1";
-            this.episodeViewer1.Size = new System.Drawing.Size(203, 235);
-            this.episodeViewer1.TabIndex = 0;
+            this.nextBtn.Location = new System.Drawing.Point(279, 21);
+            this.nextBtn.Name = "nextBtn";
+            this.nextBtn.Size = new System.Drawing.Size(61, 191);
+            this.nextBtn.TabIndex = 3;
+            this.nextBtn.Text = "next";
+            this.nextBtn.UseVisualStyleBackColor = true;
             // 
             // prevBtn
             // 
@@ -134,14 +134,14 @@
             this.prevBtn.Text = "prev";
             this.prevBtn.UseVisualStyleBackColor = true;
             // 
-            // nextBtn
+            // episodeViewer1
             // 
-            this.nextBtn.Location = new System.Drawing.Point(279, 21);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(61, 191);
-            this.nextBtn.TabIndex = 3;
-            this.nextBtn.Text = "next";
-            this.nextBtn.UseVisualStyleBackColor = true;
+            this.episodeViewer1.BackColor = System.Drawing.Color.Transparent;
+            this.episodeViewer1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("episodeViewer1.BackgroundImage")));
+            this.episodeViewer1.Location = new System.Drawing.Point(70, 2);
+            this.episodeViewer1.Name = "episodeViewer1";
+            this.episodeViewer1.Size = new System.Drawing.Size(203, 235);
+            this.episodeViewer1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -162,6 +162,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "simpsonComparator";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.resultPanel.ResumeLayout(false);
             this.ResumeLayout(false);
