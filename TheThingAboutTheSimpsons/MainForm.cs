@@ -12,6 +12,8 @@ namespace TheThingAboutTheSimpsons {
     public partial class MainForm : Form {
         private FormAboutUs aboutUs = new FormAboutUs();
         private FormOurMission ourMission = new FormOurMission();
+        private List<EpisodeViewer> resultsEpViews;
+        private int episodeIt;
         public MainForm() {
             InitializeComponent();
         }
@@ -42,8 +44,52 @@ namespace TheThingAboutTheSimpsons {
 
         }
 
-        public void showResults() {
+        public List<Episode> Search() {
+            List<Episode> episodesFounds = new List<Episode>();
 
+            //do the thing
+
+            return episodesFounds;
+        }
+
+        public void showResults() {
+            resultsEpViews = new List<EpisodeViewer>();
+
+            foreach(Episode ep in Search()) {
+                resultsEpViews.Add(ep.InitUserCtrl());
+            }
+
+            if (resultsEpViews.Count > 0) {
+                resultPanel.Visible = true;
+                showEpisode(resultsEpViews[0]);
+                episodeIt = 0;
+                label1.Text = "Yup, They d'OH it!";
+                label1.BackColor = Color.Green;
+            }
+            else {
+                resultPanel.Visible = false;
+
+                label1.Text = "No similar episode :(";
+                label1.BackColor = Color.Red;
+            }
+        }
+
+        private void showEpisode(EpisodeViewer ep) {
+            episodeViewer1 = ep;
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e) {
+            if (episodeIt < resultsEpViews.Count - 1) {
+                episodeIt++;
+                showEpisode(resultsEpViews[episodeIt]);
+            }
+        }
+
+        private void prevBtn_Click(object sender, EventArgs e) {
+            if (episodeIt > 0) {
+                episodeIt--;
+                showEpisode(resultsEpViews[episodeIt]);
+            }
         }
     }
 }
