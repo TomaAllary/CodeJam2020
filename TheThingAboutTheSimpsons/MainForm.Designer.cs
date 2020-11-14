@@ -164,6 +164,7 @@
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.textInput);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "simpsonComparator";

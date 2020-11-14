@@ -119,6 +119,7 @@ namespace TheThingAboutTheSimpsons
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAboutUs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

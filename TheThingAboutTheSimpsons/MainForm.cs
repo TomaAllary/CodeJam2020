@@ -101,5 +101,10 @@ namespace TheThingAboutTheSimpsons {
                 showEpisode(resultsEpViews[episodeIt]);
             }
         }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+        
+        }
     }
 }
