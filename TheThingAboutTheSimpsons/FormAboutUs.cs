@@ -13,6 +13,7 @@ namespace TheThingAboutTheSimpsons
     public partial class FormAboutUs : Form
     {
         private MainForm mainMenu;
+        private Point position = new Point();
         public FormAboutUs()
         {
             InitializeComponent();
@@ -22,6 +23,13 @@ namespace TheThingAboutTheSimpsons
         {
             this.Hide();
             mainMenu.Show();
+        }
+
+        public void setPosition()
+        {
+            position.X = mainMenu.Location.X;
+            position.Y = mainMenu.Location.Y;
+            this.Location = new Point(position.X, position.Y);
         }
 
         public void setMainMenu(MainForm mainMenu)

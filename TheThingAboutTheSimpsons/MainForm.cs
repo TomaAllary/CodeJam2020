@@ -16,6 +16,8 @@ namespace TheThingAboutTheSimpsons {
         private int episodeIt;
         public MainForm() {
             InitializeComponent();
+            ourMission.setMainMenu(this);
+            aboutUs.setMainMenu(this);
         }
 
         private void submitBtn_Click(object sender, EventArgs e) {
@@ -24,14 +26,14 @@ namespace TheThingAboutTheSimpsons {
 
         private void aboutUsBtn_Click(object sender, EventArgs e)
         {
-            aboutUs.setMainMenu(this);
+            aboutUs.setPosition();
             this.Hide();
             aboutUs.Show();
         }
 
         private void ourMissionBtn_Click(object sender, EventArgs e)
         {
-            ourMission.setMainMenu(this);
+            ourMission.setPosition();
             this.Hide();
             ourMission.Show();
         }
