@@ -57,6 +57,7 @@
             this.submitBtn.TabIndex = 2;
             this.submitBtn.Text = "button1";
             this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // textOuput
             // 
