@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TheThingAboutTheSimpsons {
     public class Episode {
+
+        static int[,] tableSeasons = new int[,] { {1, 0}, { 2, 13}, { 3, 35}, { 4, 59}, { 5, 81}, { 6, 103}, { 7, 128}, { 8, 153}, { 9, 178}, { 10, 203},
+            { 11, 226}, { 12, 249}, { 13, 270}, { 14, 292}, { 15, 314}, { 16, 337}, { 17, 358}, { 18, 380}, { 19, 402}, { 20, 422}, { 21, 443}, { 22, 466}, { 23, 488}, { 24, 510}, { 25, 532}, { 26, 554}, { 27, 576}, { 28, 598}, { 29, 620}, { 30, 641}, { 31, 664}, { 32, 686}};
         public string Title { get; set; }
         public int Season { get; set; }
         public int EpisodeNb { get; set; }
@@ -16,6 +19,13 @@ namespace TheThingAboutTheSimpsons {
             Title = title;
             Date = date;
             EpisodeNb = episodeNb;
+            for (int i = 0; i < 32; i++)
+            {
+                if (episodeNb >= tableSeasons[i, 1] && episodeNb < tableSeasons[i + 1, 1])
+                    Season = tableSeasons[i, 0];
+            }
+            if (episodeNb >= 686)
+                Season = 32;
         }
 
         public EpisodeViewer InitUserCtrl() {
