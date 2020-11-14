@@ -76,7 +76,7 @@ namespace TheThingAboutTheSimpsons {
                     string epName = line.Substring(0, i - 2);
                     string date = line.Substring(line.IndexOf('\t') + 1).TrimEnd('\r');
 
-                    episodes.Add(new Episode(epName, date, i + 1));
+                    episodes.Add(new Episode(epName, date, it + 1));
                 }
                 else {
                     //Console.WriteLine(line);
