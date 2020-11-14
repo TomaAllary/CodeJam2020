@@ -36,31 +36,32 @@
             // 
             this.TitleLb.AutoSize = true;
             this.TitleLb.BackColor = System.Drawing.Color.Transparent;
-            this.TitleLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLb.ForeColor = System.Drawing.Color.Cornsilk;
-            this.TitleLb.Location = new System.Drawing.Point(4, 22);
+            this.TitleLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLb.ForeColor = System.Drawing.Color.Yellow;
+            this.TitleLb.Location = new System.Drawing.Point(157, 42);
             this.TitleLb.Name = "TitleLb";
-            this.TitleLb.Size = new System.Drawing.Size(450, 63);
+            this.TitleLb.Size = new System.Drawing.Size(389, 54);
             this.TitleLb.TabIndex = 0;
             this.TitleLb.Text = "Did They d\'OH it?";
             // 
             // textInput
             // 
-            this.textInput.BackColor = System.Drawing.SystemColors.Window;
+            this.textInput.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textInput.Location = new System.Drawing.Point(15, 99);
             this.textInput.Multiline = true;
             this.textInput.Name = "textInput";
-            this.textInput.Size = new System.Drawing.Size(344, 147);
+            this.textInput.Size = new System.Drawing.Size(344, 155);
             this.textInput.TabIndex = 1;
             // 
             // submitBtn
             // 
-            this.submitBtn.Location = new System.Drawing.Point(52, 252);
+            this.submitBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.submitBtn.Location = new System.Drawing.Point(60, 272);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(259, 23);
             this.submitBtn.TabIndex = 2;
             this.submitBtn.Text = "search";
-            this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.UseVisualStyleBackColor = false;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // aboutUsBtn
@@ -69,11 +70,12 @@
             this.aboutUsBtn.BackColor = System.Drawing.Color.Transparent;
             this.aboutUsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutUsBtn.ForeColor = System.Drawing.Color.Cornsilk;
-            this.aboutUsBtn.Location = new System.Drawing.Point(826, 58);
+            this.aboutUsBtn.Location = new System.Drawing.Point(820, 505);
             this.aboutUsBtn.Name = "aboutUsBtn";
             this.aboutUsBtn.Size = new System.Drawing.Size(97, 25);
             this.aboutUsBtn.TabIndex = 7;
             this.aboutUsBtn.Text = "About US";
+            this.aboutUsBtn.Click += new System.EventHandler(this.aboutUsBtn_Click);
             // 
             // ourMissionBtn
             // 
@@ -81,18 +83,19 @@
             this.ourMissionBtn.BackColor = System.Drawing.Color.Transparent;
             this.ourMissionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ourMissionBtn.ForeColor = System.Drawing.Color.Cornsilk;
-            this.ourMissionBtn.Location = new System.Drawing.Point(824, 22);
+            this.ourMissionBtn.Location = new System.Drawing.Point(800, 547);
             this.ourMissionBtn.Name = "ourMissionBtn";
             this.ourMissionBtn.Size = new System.Drawing.Size(117, 25);
             this.ourMissionBtn.TabIndex = 8;
             this.ourMissionBtn.Text = "Our Mission";
+            this.ourMissionBtn.Click += new System.EventHandler(this.ourMissionBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Red;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 299);
+            this.label1.Location = new System.Drawing.Point(95, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 25);
             this.label1.TabIndex = 9;

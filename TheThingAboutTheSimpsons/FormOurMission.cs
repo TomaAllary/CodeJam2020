@@ -12,9 +12,21 @@ namespace TheThingAboutTheSimpsons
 {
     public partial class FormOurMission : Form
     {
+        private MainForm mainMenu;
         public FormOurMission()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainMenu.Show();
+        }
+
+        public void setMainMenu(MainForm mainMenu)
+        {
+            this.mainMenu = mainMenu;
         }
     }
 }
