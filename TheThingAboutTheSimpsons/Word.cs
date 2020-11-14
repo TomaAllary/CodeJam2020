@@ -18,7 +18,8 @@ namespace TheThingAboutTheSimpsons
         {
             this.word = word;
             IsSynonym = isSynonym;
-
+            if (!isSynonym)
+                FindSynonyms();
         }
 
         public void FindSynonyms()
@@ -30,8 +31,7 @@ namespace TheThingAboutTheSimpsons
                 string[] test = htmlCode.Split(new string[] { "word=" }, StringSplitOptions.None);                             
                 List<string> wordsFinal = new List<string>();
                 for (int i = 1; i <= test.Length; i++)
-                    wordsFinal.Add(test[i].Substring(0, test[i].IndexOf('>') - 1));
-
+                    listSynonyms.Add(new Word(test[i].Substring(0, test[i].IndexOf('>') - 1), true));
                 ;
             }
         }
