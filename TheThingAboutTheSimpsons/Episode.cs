@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TheThingAboutTheSimpsons {
-    class Episode {
+    public class Episode {
         public string Title { get; set; }
         public int Season { get; set; }
         public int EpisodeNb { get; set; }
