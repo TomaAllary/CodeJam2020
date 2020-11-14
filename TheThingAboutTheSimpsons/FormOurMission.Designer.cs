@@ -82,6 +82,7 @@ namespace TheThingAboutTheSimpsons
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOurMission";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "simpsonsComparator/OurMission";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

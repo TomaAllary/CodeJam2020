@@ -17,7 +17,9 @@ namespace TheThingAboutTheSimpsons {
         public MainForm() {
             InitializeComponent();
             ourMission.setMainMenu(this);
+            ourMission.setPosition();
             aboutUs.setMainMenu(this);
+            aboutUs.setPosition();
         }
 
         private void submitBtn_Click(object sender, EventArgs e) {
