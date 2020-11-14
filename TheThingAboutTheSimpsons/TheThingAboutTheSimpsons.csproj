@@ -66,7 +66,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EpisodeViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EpisodeViewer.Designer.cs">
+      <DependentUpon>EpisodeViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Word.cs" />
+    <EmbeddedResource Include="EpisodeViewer.resx">
+      <DependentUpon>EpisodeViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAboutUs.resx">
       <DependentUpon>FormAboutUs.cs</DependentUpon>
     </EmbeddedResource>

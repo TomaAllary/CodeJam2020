@@ -33,5 +33,13 @@ namespace TheThingAboutTheSimpsons {
             this.Hide();
             ourMission.Show();
         }
+
+        public void LoadEpisodes() {
+
+        }
+
+        public void ParseInput(string text) {
+
+        }
     }
 }
