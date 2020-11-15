@@ -17,11 +17,11 @@ namespace TheThingAboutTheSimpsons
         {
             this.word = word;
             if (!isSynonym) {
-                Score = 1;
+                Score = 2.0;
                 FindSynonyms();
             }
             else {
-                Score = 0.9;
+                Score = 1.0;
             }
         }
 

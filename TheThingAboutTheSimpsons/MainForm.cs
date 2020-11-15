@@ -136,7 +136,7 @@ namespace TheThingAboutTheSimpsons {
             foreach(string x in ep.summary) {
                 episodeViewer1.summaryLb.Text += " " + x;
             }         
-            MessageBox.Show(ep.ToString());
+            MessageBox.Show(ep.ToString() + ":" + ep.Score.ToString());
             ;
         }
 
@@ -185,12 +185,17 @@ namespace TheThingAboutTheSimpsons {
             BackgroundWorker worker = sender as BackgroundWorker;
             worker.WorkerReportsProgress = true;
 
+            foreach(Episode ep in episodes) {
+                ep.Score = 0;
+            }
+
             episodesFounds = new List<Episode>();
 
             //do the thing
             int epNb = 0;
             foreach (Episode ep in episodes) {
                 List<int> positionList = new List<int>();
+                List<string> differentWordsChosen = new List<string>();
 
                 int progress = (int)(((double)epNb / (double)episodes.Count) * 100.0);
                 if (lastProgress < progress) {
@@ -198,29 +203,37 @@ namespace TheThingAboutTheSimpsons {
                     lastProgress = progress;
                 }
 
-                foreach (Word w in Sentence) { 
-                    for (int i = 0; i < ep.summary.Length; i++) {
+                foreach (Word w in Sentence) {
+                    bool wordFound = false;
+
+                    for (int i = 0; i < ep.summary.Length && !wordFound; i++) {
                         string resumeW = ep.summary[i];
                         //compare the input word with the resume words
-                        if (w.word == resumeW) {
-                            if (!positionList.Contains(i)) {
+                        if (w.word == resumeW && !BlackListedWords.Contains(w.word)) {
+                            if (!positionList.Contains(i) && !differentWordsChosen.Contains(w.word)) {
                                 ep.Score += w.Score;
                                 positionList.Add(i);
+                                differentWordsChosen.Add(w.word);
+                                wordFound = true;
                             }
                         }
                     }
                     foreach (Word syn in w.listSynonyms) {
                         //compare the input word synonyms with the resume words
-                        for (int i = 0; i < ep.summary.Length; i++) {
+                        for (int i = 0; i < ep.summary.Length && !wordFound; i++) {
                             string resumeW = ep.summary[i];
-                            if (syn.word == resumeW) {
-                                if (!positionList.Contains(i)) {
+                            if (syn.word == resumeW && !BlackListedWords.Contains(syn.word)) {
+                                if (!positionList.Contains(i) && !differentWordsChosen.Contains(syn.word)) {
                                     ep.Score += syn.Score;
                                     positionList.Add(i);
+                                    differentWordsChosen.Add(syn.word);
+                                    wordFound = true;
                                 }
 
                             }
                         }
+                        if (wordFound)
+                            break;
                     }
                 }
 
@@ -229,7 +242,7 @@ namespace TheThingAboutTheSimpsons {
                 //ep.Score *= (1.0 / avgDist);
 
                 //Seuil
-                if (ep.Score > 3) {
+                if (ep.Score > 4) {
                     ep.wordsChosen = positionList;
                     episodesFounds.Add(ep);
                 }
