@@ -247,20 +247,23 @@ namespace TheThingAboutTheSimpsons {
         }
 
         private double sumDistance(int pos, List<int> positions) {
-            double sum = 0;
+            if (positions.Count != 0) {
+                double sum = 0;
 
-            if (pos == positions.Count - 1)
-                return sum;
+                if (pos == positions.Count - 1)
+                    return sum;
 
-            for(int i = pos + 1; i < positions.Count; i++) {
-                sum += Math.Abs((double)positions[i] - (double)positions[pos]);
+                for (int i = pos + 1; i < positions.Count; i++) {
+                    sum += Math.Abs((double)positions[i] - (double)positions[pos]);
+                }
+
+                double nextSum = sumDistance(pos + 1, positions);
+                if (nextSum == 0.0)
+                    return sum;
+
+                return (sum + nextSum) / 2.0;
             }
-
-            double nextSum = sumDistance(pos + 1, positions);
-            if (nextSum == 0.0)
-                return sum;
-
-            return (sum + nextSum) / 2.0;
+            return 1.0;
             
         }
     }
