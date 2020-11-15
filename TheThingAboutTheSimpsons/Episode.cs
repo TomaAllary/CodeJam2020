@@ -16,6 +16,7 @@ namespace TheThingAboutTheSimpsons {
         public int NumberInSeason { get; set; }
         public string Date { get; set; }
         public string[] summary;
+        public List<int> wordsChosen;
 
         public Episode (string title, string date, int episodeNb) {
             Title = title;

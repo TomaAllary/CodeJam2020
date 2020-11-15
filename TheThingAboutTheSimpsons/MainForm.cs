@@ -136,6 +136,7 @@ namespace TheThingAboutTheSimpsons {
             foreach(string x in ep.summary) {
                 episodeViewer1.summaryLb.Text += " " + x;
             }
+            MessageBox.Show(ep.wordsChosen.ToString());
         }
 
         private void nextBtn_Click(object sender, EventArgs e) {
@@ -201,12 +202,8 @@ namespace TheThingAboutTheSimpsons {
                         string resumeW = ep.summary[i];
                         //compare the input word with the resume words
                         if (w.word == resumeW) {
-                            if (positionList.Contains(i))
+                            if (!positionList.Contains(i))
                                 ep.Score += w.Score;
-                            else {
-                                ep.Score += w.Score;
-                                positionList.Add(i);
-                            }
                         }
                     }
                     foreach (Word syn in w.listSynonyms) {
@@ -214,12 +211,8 @@ namespace TheThingAboutTheSimpsons {
                         for (int i = 0; i < ep.summary.Length; i++) {
                             string resumeW = ep.summary[i];
                             if (syn.word == resumeW) {
-                                if (positionList.Contains(i))
+                                if (!positionList.Contains(i))
                                     ep.Score += syn.Score;
-                                else {
-                                    ep.Score += syn.Score;
-                                    positionList.Add(i);
-                                }
 
                             }
                         }
@@ -231,8 +224,10 @@ namespace TheThingAboutTheSimpsons {
                 //ep.Score *= (1.0 / avgDist);
 
                 //Seuil
-                if (ep.Score > 3)
+                if (ep.Score > 3) {
+                    ep.wordsChosen = positionList;
                     episodesFounds.Add(ep);
+                }
                 epNb++;
 
             }
