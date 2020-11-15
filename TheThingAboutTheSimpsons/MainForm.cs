@@ -135,8 +135,9 @@ namespace TheThingAboutTheSimpsons {
             episodeViewer1.summaryLb.Text = "";
             foreach(string x in ep.summary) {
                 episodeViewer1.summaryLb.Text += " " + x;
-            }
-            MessageBox.Show(ep.wordsChosen.ToString());
+            }         
+            MessageBox.Show(ep.ToString());
+            ;
         }
 
         private void nextBtn_Click(object sender, EventArgs e) {

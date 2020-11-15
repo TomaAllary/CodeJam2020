@@ -38,5 +38,16 @@ namespace TheThingAboutTheSimpsons {
 
             Score = 0;
         }
+       
+        override
+        public string ToString()
+        {
+            string listOfWords = null;
+            foreach (int i in wordsChosen)
+            {
+                listOfWords += (summary[i] + ", ");
+            }
+            return listOfWords;
+        }
     }
 }
