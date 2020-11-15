@@ -203,8 +203,10 @@ namespace TheThingAboutTheSimpsons {
                         if (w.word == resumeW) {
                             if (positionList.Contains(i))
                                 ep.Score += w.Score;
-                            else
+                            else {
+                                ep.Score += w.Score;
                                 positionList.Add(i);
+                            }
                         }
                     }
                     foreach (Word syn in w.listSynonyms) {
@@ -214,8 +216,10 @@ namespace TheThingAboutTheSimpsons {
                             if (syn.word == resumeW) {
                                 if (positionList.Contains(i))
                                     ep.Score += syn.Score;
-                                else
+                                else {
+                                    ep.Score += syn.Score;
                                     positionList.Add(i);
+                                }
 
                             }
                         }
@@ -224,10 +228,10 @@ namespace TheThingAboutTheSimpsons {
 
                 double avgDist = sumDistance(0, positionList);
 
-                ep.Score *= (1.0 / avgDist);
+                //ep.Score *= (1.0 / avgDist);
 
                 //Seuil
-                if (ep.Score > 1)
+                if (ep.Score > 3)
                     episodesFounds.Add(ep);
                 epNb++;
 
