@@ -37,30 +37,5 @@ namespace TheThingAboutTheSimpsons {
 
             Score = 0;
         }
-
-        public EpisodeViewer InitUserCtrl() {
-            EpisodeViewer episodeViewer = new EpisodeViewer();
-
-            episodeViewer.Title.Text = Title;
-            episodeViewer.episodeNbLb.Text = "Episode #" + EpisodeNb.ToString();
-            episodeViewer.seasonNbLb.Text = "Season #" + Season.ToString();
-
-            if (Date != null)
-                episodeViewer.dateLb.Text = Date;
-            else
-                episodeViewer.dateLb.Text = "";
-
-            if (summary != null) {
-                string text = "";
-                foreach(var x in summary) {
-                    text += " " + x;
-                }
-                episodeViewer.summaryLb.Text = text;
-            }
-            else
-                episodeViewer.summaryLb.Text = "";
-
-            return episodeViewer;
-        }
     }
 }

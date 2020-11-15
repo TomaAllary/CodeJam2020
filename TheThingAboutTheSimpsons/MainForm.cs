@@ -18,7 +18,7 @@ namespace TheThingAboutTheSimpsons {
         private List<string> BlackListedWords = new List<string>();
         private int lastProgress = 0;
 
-        private List<EpisodeViewer> resultsEpViews;
+        private List<Episode> episodesFounds;
         private int episodeIt;
         private Point position = new Point();
         List<Episode> episodes = new List<Episode>();
@@ -107,9 +107,9 @@ namespace TheThingAboutTheSimpsons {
         public void showResults() {
             
 
-            if (resultsEpViews.Count > 0) {
+            if (episodesFounds.Count > 0) {
                 resultPanel.Visible = true;
-                showEpisode(resultsEpViews[0]);
+                showEpisode(episodesFounds[0]);
                 episodeIt = 0;
                 label1.Text = "Yup, They d'OH it!";
                 label1.BackColor = Color.Green;
@@ -122,25 +122,28 @@ namespace TheThingAboutTheSimpsons {
             }
         }
 
-        private void showEpisode(EpisodeViewer ep) {
-            episodeViewer1.Title.Text = ep.Title.Text;
-            episodeViewer1.episodeNbLb.Text = ep.episodeNbLb.Text;
-            episodeViewer1.seasonNbLb.Text = ep.seasonNbLb.Text;
-            episodeViewer1.dateLb.Text = ep.dateLb.Text;
-            episodeViewer1.summaryLb.Text = ep.summaryLb.Text;
+        private void showEpisode(Episode ep) {
+            episodeViewer1.Title.Text = ep.Title;
+            episodeViewer1.episodeNbLb.Text = ep.EpisodeNb.ToString();
+            episodeViewer1.seasonNbLb.Text = ep.Season.ToString();
+            episodeViewer1.dateLb.Text = ep.Date;
+            episodeViewer1.summaryLb.Text = "";
+            foreach(string x in ep.summary) {
+                episodeViewer1.summaryLb.Text += " " + x;
+            }
         }
 
         private void nextBtn_Click(object sender, EventArgs e) {
-            if (episodeIt < resultsEpViews.Count - 1) {
+            if (episodeIt < episodesFounds.Count - 1) {
                 episodeIt++;
-                showEpisode(resultsEpViews[episodeIt]);
+                showEpisode(episodesFounds[episodeIt]);
             }
         }
 
         private void prevBtn_Click(object sender, EventArgs e) {
             if (episodeIt > 0) {
                 episodeIt--;
-                showEpisode(resultsEpViews[episodeIt]);
+                showEpisode(episodesFounds[episodeIt]);
             }
         }
 
@@ -175,9 +178,7 @@ namespace TheThingAboutTheSimpsons {
             BackgroundWorker worker = sender as BackgroundWorker;
             worker.WorkerReportsProgress = true;
 
-            resultsEpViews = new List<EpisodeViewer>();
-
-            List<Episode> episodesFounds = new List<Episode>();
+            episodesFounds = new List<Episode>();
 
             //do the thing
             int epNb = 0;
@@ -234,10 +235,6 @@ namespace TheThingAboutTheSimpsons {
                     episodesFounds.Add(ep);
                 epNb++;
 
-            }
-
-            foreach (Episode ep in episodesFounds) {
-                resultsEpViews.Add(ep.InitUserCtrl());
             }
         }
 
