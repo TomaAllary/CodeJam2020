@@ -20,9 +20,9 @@ namespace TheThingAboutTheSimpsons {
             Title = title;
             Date = date;
             EpisodeNb = episodeNb;
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 31; i++)
             {
-                if (episodeNb >= tableSeasons[i, 1] && episodeNb < tableSeasons[i + 1, 1])
+                if (episodeNb >= tableSeasons[i, 1] && episodeNb < tableSeasons[i+1, 1])
                     Season = tableSeasons[i, 0];
             }
             if (episodeNb >= 686)
