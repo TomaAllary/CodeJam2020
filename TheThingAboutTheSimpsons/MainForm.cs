@@ -34,6 +34,11 @@ namespace TheThingAboutTheSimpsons {
         }
 
         private void submitBtn_Click(object sender, EventArgs e) {
+            //Clear last search
+            episodesFounds = null;
+            Sentence.Clear();
+            lastProgress = 0;
+
             foreach(string s in textInput.Text.Split(' '))
             {
                 if (!BlackListedWords.Contains(s.ToLower())) {
@@ -124,8 +129,8 @@ namespace TheThingAboutTheSimpsons {
 
         private void showEpisode(Episode ep) {
             episodeViewer1.Title.Text = ep.Title;
-            episodeViewer1.episodeNbLb.Text = ep.EpisodeNb.ToString();
-            episodeViewer1.seasonNbLb.Text = ep.Season.ToString();
+            episodeViewer1.episodeNbLb.Text = "Episode #" + ep.EpisodeNb.ToString();
+            episodeViewer1.seasonNbLb.Text = "Season #" + ep.Season.ToString();
             episodeViewer1.dateLb.Text = ep.Date;
             episodeViewer1.summaryLb.Text = "";
             foreach(string x in ep.summary) {
@@ -183,52 +188,43 @@ namespace TheThingAboutTheSimpsons {
             //do the thing
             int epNb = 0;
             foreach (Episode ep in episodes) {
-                Dictionary<int, double> wordsFoundPos = new Dictionary<int, double>();//dictionary position + score
+                List<int> positionList = new List<int>();
+
                 int progress = (int)(((double)epNb / (double)episodes.Count) * 100.0);
                 if (lastProgress < progress) {
                     worker.ReportProgress(progress);
                     lastProgress = progress;
                 }
 
-                for (int i = 0; i < Sentence.Count; i++) {
-                    Word w = Sentence[i];
-                    foreach (string resumeW in ep.summary) {
+                foreach (Word w in Sentence) { 
+                    for (int i = 0; i < ep.summary.Length; i++) {
+                        string resumeW = ep.summary[i];
                         //compare the input word with the resume words
                         if (w.word == resumeW) {
-                            if (wordsFoundPos.ContainsKey(i))
-                                wordsFoundPos[i] += w.Score;
+                            if (positionList.Contains(i))
+                                ep.Score += w.Score;
                             else
-                                wordsFoundPos.Add(i, w.Score);
+                                positionList.Add(i);
                         }
                     }
                     foreach (Word syn in w.listSynonyms) {
                         //compare the input word synonyms with the resume words
-                        foreach (string resumeW in ep.summary) {
+                        for (int i = 0; i < ep.summary.Length; i++) {
+                            string resumeW = ep.summary[i];
                             if (syn.word == resumeW) {
-                                if (wordsFoundPos.ContainsKey(i))
-                                    wordsFoundPos[i] += syn.Score;
+                                if (positionList.Contains(i))
+                                    ep.Score += syn.Score;
                                 else
-                                    wordsFoundPos.Add(i, syn.Score);
+                                    positionList.Add(i);
 
                             }
                         }
                     }
                 }
 
+                double avgDist = sumDistance(0, positionList);
 
-                //Score attribution function here...
-                double avgDistBtwWord = 0;
-                double scoreSum = 0;
-                int nb = 0;
-                foreach (var elem in wordsFoundPos) {
-                    scoreSum += elem.Value;//adding score
-                    avgDistBtwWord += elem.Key;//adding distance
-                    nb++;
-                }
-
-                avgDistBtwWord /= nb;
-
-                ep.Score = (1 / avgDistBtwWord) * scoreSum;
+                ep.Score *= (1.0 / avgDist);
 
                 //Seuil
                 if (ep.Score > 1)
@@ -248,6 +244,24 @@ namespace TheThingAboutTheSimpsons {
             showResults();
             progressBar1.Value = 0;
             progressBar1.Visible = false;
+        }
+
+        private double sumDistance(int pos, List<int> positions) {
+            double sum = 0;
+
+            if (pos == positions.Count - 1)
+                return sum;
+
+            for(int i = pos + 1; i < positions.Count; i++) {
+                sum += Math.Abs((double)positions[i] - (double)positions[pos]);
+            }
+
+            double nextSum = sumDistance(pos + 1, positions);
+            if (nextSum == 0.0)
+                return sum;
+
+            return (sum + nextSum) / 2.0;
+            
         }
     }
 }
