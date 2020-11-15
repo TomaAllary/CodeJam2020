@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace TheThingAboutTheSimpsons {
     public class Episode {
 
-        static int[,] tableSeasons = new int[,] { {1, 0}, { 2, 13}, { 3, 35}, { 4, 59}, { 5, 81}, { 6, 103}, { 7, 128}, { 8, 153}, { 9, 178}, { 10, 203},
-            { 11, 226}, { 12, 249}, { 13, 270}, { 14, 292}, { 15, 314}, { 16, 337}, { 17, 358}, { 18, 380}, { 19, 402}, { 20, 422}, { 21, 443}, { 22, 466}, { 23, 488}, { 24, 510}, { 25, 532}, { 26, 554}, { 27, 576}, { 28, 598}, { 29, 620}, { 30, 641}, { 31, 664}, { 32, 686}};
+        static int[,] tableSeasons = new int[,] { {1, 1}, { 2, 14}, { 3, 36}, { 4, 60}, { 5, 82}, { 6, 104}, { 7, 129}, { 8, 154}, { 9, 179}, { 10, 204},
+            { 11, 227}, { 12, 249}, { 13, 270}, { 14, 292}, { 15, 314}, { 16, 336}, { 17, 357}, { 18, 379}, { 19, 401}, { 20, 421}, { 21, 442}, { 22, 465}, { 23, 487}, { 24, 509}, { 25, 531}, { 26, 553}, { 27, 575}, { 28, 597}, { 29, 619}, { 30, 640}, { 31, 663}, { 32, 685}};
         public string Title { get; set; }
         public double Score { get; set; }
         public int Season { get; set; }
         public int EpisodeNb { get; set; }
+        public int NumberInSeason { get; set; }
         public string Date { get; set; }
         public string[] summary;
 
@@ -22,11 +23,17 @@ namespace TheThingAboutTheSimpsons {
             EpisodeNb = episodeNb;
             for (int i = 0; i < 31; i++)
             {
-                if (episodeNb >= tableSeasons[i, 1] && episodeNb < tableSeasons[i+1, 1])
+                if (episodeNb >= tableSeasons[i, 1] && episodeNb < tableSeasons[i + 1, 1])
+                {
                     Season = tableSeasons[i, 0];
+                    NumberInSeason = (episodeNb + 1 - tableSeasons[i, 1]);
+                }
             }
-            if (episodeNb >= 686)
+            if (episodeNb >= 685)
+            {
                 Season = 32;
+                NumberInSeason = episodeNb + 1 - 685;
+            }
 
             Score = 0;
         }
