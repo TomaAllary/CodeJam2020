@@ -16,6 +16,7 @@ namespace TheThingAboutTheSimpsons {
 
         private List<Word> Sentence = new List<Word>();
         private List<string> BlackListedWords = new List<string>();
+        private int lastProgress = 0;
 
         private List<EpisodeViewer> resultsEpViews;
         private int episodeIt;
@@ -41,7 +42,7 @@ namespace TheThingAboutTheSimpsons {
                 }
             }
 
-            showResults();
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void aboutUsBtn_Click(object sender, EventArgs e)
@@ -103,69 +104,8 @@ namespace TheThingAboutTheSimpsons {
             while (true) ;
             */
         }
-
-        public List<Episode> Search() {
-            List<Episode> episodesFounds = new List<Episode>();
-
-            //do the thing
-            foreach (Episode ep in episodes) {
-                Dictionary<int, double> wordsFoundPos = new Dictionary<int, double>();//dictionary position + score
-
-                for (int i = 0; i < Sentence.Count; i++) {
-                    Word w = Sentence[i];
-                    foreach (string resumeW in ep.summary) {
-                        //compare the input word with the resume words
-                        if (w.word == resumeW) {
-                            if (wordsFoundPos.ContainsKey(i))
-                                wordsFoundPos[i] += w.Score;
-                            else
-                                wordsFoundPos.Add(i, w.Score);
-                        }
-                    }
-                    foreach(Word syn in w.listSynonyms) {
-                        //compare the input word synonyms with the resume words
-                        foreach (string resumeW in ep.summary) {
-                            if (syn.word == resumeW) {
-                                if (wordsFoundPos.ContainsKey(i))
-                                    wordsFoundPos[i] += syn.Score;
-                                else
-                                    wordsFoundPos.Add(i, syn.Score);
-                                
-                            }
-                        }
-                    }
-                }
-
-
-                //Score attribution function here...
-                double avgDistBtwWord = 0;
-                double scoreSum = 0;
-                int nb = 0;
-                foreach(var elem in wordsFoundPos) {
-                    scoreSum += elem.Value;//adding score
-                    avgDistBtwWord += elem.Key;//adding distance
-                    nb++;
-                }
-
-                avgDistBtwWord /= nb;
-
-                ep.Score = (1 / avgDistBtwWord) * scoreSum;
-
-                //Seuil
-                if (ep.Score > 1)
-                    episodesFounds.Add(ep);
-
-            }
-
-            return episodesFounds;
-        }
-
         public void showResults() {
-            resultsEpViews = new List<EpisodeViewer>();
-
-            foreach(Episode ep in Search()) {
-                resultsEpViews.Add(ep.InitUserCtrl());
-            }
+            
 
             if (resultsEpViews.Count > 0) {
                 resultPanel.Visible = true;
@@ -229,6 +169,88 @@ namespace TheThingAboutTheSimpsons {
                 MessageBox.Show(ex.ToString());
             }
             ;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            worker.WorkerReportsProgress = true;
+
+            resultsEpViews = new List<EpisodeViewer>();
+
+            List<Episode> episodesFounds = new List<Episode>();
+
+            //do the thing
+            int epNb = 0;
+            foreach (Episode ep in episodes) {
+                Dictionary<int, double> wordsFoundPos = new Dictionary<int, double>();//dictionary position + score
+                int progress = (int)(((double)epNb / (double)episodes.Count) * 100.0);
+                if (lastProgress < progress) {
+                    worker.ReportProgress(progress);
+                    lastProgress = progress;
+                }
+
+                for (int i = 0; i < Sentence.Count; i++) {
+                    Word w = Sentence[i];
+                    foreach (string resumeW in ep.summary) {
+                        //compare the input word with the resume words
+                        if (w.word == resumeW) {
+                            if (wordsFoundPos.ContainsKey(i))
+                                wordsFoundPos[i] += w.Score;
+                            else
+                                wordsFoundPos.Add(i, w.Score);
+                        }
+                    }
+                    foreach (Word syn in w.listSynonyms) {
+                        //compare the input word synonyms with the resume words
+                        foreach (string resumeW in ep.summary) {
+                            if (syn.word == resumeW) {
+                                if (wordsFoundPos.ContainsKey(i))
+                                    wordsFoundPos[i] += syn.Score;
+                                else
+                                    wordsFoundPos.Add(i, syn.Score);
+
+                            }
+                        }
+                    }
+                }
+
+
+                //Score attribution function here...
+                double avgDistBtwWord = 0;
+                double scoreSum = 0;
+                int nb = 0;
+                foreach (var elem in wordsFoundPos) {
+                    scoreSum += elem.Value;//adding score
+                    avgDistBtwWord += elem.Key;//adding distance
+                    nb++;
+                }
+
+                avgDistBtwWord /= nb;
+
+                ep.Score = (1 / avgDistBtwWord) * scoreSum;
+
+                //Seuil
+                if (ep.Score > 1)
+                    episodesFounds.Add(ep);
+                epNb++;
+
+            }
+
+            foreach (Episode ep in episodesFounds) {
+                resultsEpViews.Add(ep.InitUserCtrl());
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e) {
+           if (progressBar1.Visible != true)
+                progressBar1.Visible = true;
+           progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
+            showResults();
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
         }
     }
 }
