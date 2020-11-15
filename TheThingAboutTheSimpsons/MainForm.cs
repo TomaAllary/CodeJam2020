@@ -116,14 +116,21 @@ namespace TheThingAboutTheSimpsons {
                     foreach (string resumeW in ep.summary) {
                         //compare the input word with the resume words
                         if (w.word == resumeW) {
-                            wordsFoundPos.Add(i, w.Score);
+                            if (wordsFoundPos.ContainsKey(i))
+                                wordsFoundPos[i] += w.Score;
+                            else
+                                wordsFoundPos.Add(i, w.Score);
                         }
                     }
                     foreach(Word syn in w.listSynonyms) {
                         //compare the input word synonyms with the resume words
                         foreach (string resumeW in ep.summary) {
                             if (syn.word == resumeW) {
-                                wordsFoundPos.Add(i, syn.Score);
+                                if (wordsFoundPos.ContainsKey(i))
+                                    wordsFoundPos[i] += syn.Score;
+                                else
+                                    wordsFoundPos.Add(i, syn.Score);
+                                
                             }
                         }
                     }
@@ -176,7 +183,11 @@ namespace TheThingAboutTheSimpsons {
         }
 
         private void showEpisode(EpisodeViewer ep) {
-            episodeViewer1 = ep;
+            episodeViewer1.Title.Text = ep.Title.Text;
+            episodeViewer1.episodeNbLb.Text = ep.episodeNbLb.Text;
+            episodeViewer1.seasonNbLb.Text = ep.seasonNbLb.Text;
+            episodeViewer1.dateLb.Text = ep.dateLb.Text;
+            episodeViewer1.summaryLb.Text = ep.summaryLb.Text;
         }
 
         private void nextBtn_Click(object sender, EventArgs e) {

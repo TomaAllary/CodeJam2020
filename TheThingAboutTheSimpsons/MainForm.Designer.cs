@@ -31,16 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.resultPanel = new System.Windows.Forms.Panel();
-
-            this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
-
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.episodeViewer1 = new TheThingAboutTheSimpsons.EpisodeViewer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.resultPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // textInput
@@ -113,14 +110,24 @@
             // resultPanel
             // 
             this.resultPanel.BackColor = System.Drawing.Color.Transparent;
+            this.resultPanel.Controls.Add(this.episodeViewer1);
             this.resultPanel.Controls.Add(this.pictureBox3);
             this.resultPanel.Controls.Add(this.pictureBox2);
-            this.resultPanel.Controls.Add(this.episodeViewer1);
             this.resultPanel.Location = new System.Drawing.Point(15, 344);
             this.resultPanel.Name = "resultPanel";
-            this.resultPanel.Size = new System.Drawing.Size(344, 240);
+            this.resultPanel.Size = new System.Drawing.Size(522, 240);
             this.resultPanel.TabIndex = 11;
             this.resultPanel.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(457, 80);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(61, 106);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // pictureBox2
             // 
@@ -132,26 +139,15 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.prevBtn_Click);
             // 
-
             // episodeViewer1
             // 
             this.episodeViewer1.BackColor = System.Drawing.Color.Transparent;
             this.episodeViewer1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("episodeViewer1.BackgroundImage")));
-            this.episodeViewer1.Location = new System.Drawing.Point(70, 2);
+            this.episodeViewer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.episodeViewer1.Location = new System.Drawing.Point(71, 1);
             this.episodeViewer1.Name = "episodeViewer1";
-            this.episodeViewer1.Size = new System.Drawing.Size(203, 235);
-            this.episodeViewer1.TabIndex = 0;
-
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(279, 80);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(61, 106);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.nextBtn_Click);
-
+            this.episodeViewer1.Size = new System.Drawing.Size(384, 235);
+            this.episodeViewer1.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -176,8 +172,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.resultPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,9 +187,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel resultPanel;
-        private EpisodeViewer episodeViewer1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private EpisodeViewer episodeViewer1;
     }
 }
 

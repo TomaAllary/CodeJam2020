@@ -42,8 +42,8 @@ namespace TheThingAboutTheSimpsons {
             EpisodeViewer episodeViewer = new EpisodeViewer();
 
             episodeViewer.Title.Text = Title;
-            episodeViewer.seasonNbLb.Text = EpisodeNb.ToString();
-            episodeViewer.seasonNbLb.Text = Season.ToString();
+            episodeViewer.episodeNbLb.Text = "Episode #" + EpisodeNb.ToString();
+            episodeViewer.seasonNbLb.Text = "Season #" + Season.ToString();
 
             if (Date != null)
                 episodeViewer.dateLb.Text = Date;

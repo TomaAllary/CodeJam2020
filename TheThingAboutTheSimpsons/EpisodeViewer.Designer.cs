@@ -86,19 +86,20 @@
             this.summaryLb.ForeColor = System.Drawing.Color.SaddleBrown;
             this.summaryLb.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.summaryLb.Location = new System.Drawing.Point(11, 79);
-            this.summaryLb.MaximumSize = new System.Drawing.Size(180, 144);
+            this.summaryLb.MaximumSize = new System.Drawing.Size(363, 144);
             this.summaryLb.Name = "summaryLb";
-            this.summaryLb.Size = new System.Drawing.Size(178, 143);
+            this.summaryLb.Size = new System.Drawing.Size(363, 144);
             this.summaryLb.TabIndex = 5;
-            this.summaryLb.Text = "label1\r\nsddsasdasdasdasasd\r\nasdddddddddads\r\nsdssssssssssssssssssssqqqqqqqqqq\r\na\r\n" +
-    "a\r\na\r\na\r\na\r\na\r\na\r\n";
+            this.summaryLb.Text = "label1\r\nsddsasdasdasdasasd\r\nasdddddddddads\r\nsdssssssssssssssssssssqqqqqqqqqqsssss" +
+    "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\na\r\na\r\na\r\na\r\na\r" +
+    "\na\r\na\r\n";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(89, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(289, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(85, 52);
             this.pictureBox1.TabIndex = 6;
@@ -110,14 +111,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.summaryLb);
             this.Controls.Add(this.dateLb);
             this.Controls.Add(this.seasonNbLb);
             this.Controls.Add(this.episodeNbLb);
             this.Controls.Add(this.Title);
+            this.DoubleBuffered = true;
             this.Name = "EpisodeViewer";
-            this.Size = new System.Drawing.Size(203, 235);
+            this.Size = new System.Drawing.Size(384, 235);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
