@@ -203,8 +203,10 @@ namespace TheThingAboutTheSimpsons {
                         string resumeW = ep.summary[i];
                         //compare the input word with the resume words
                         if (w.word == resumeW) {
-                            if (!positionList.Contains(i))
+                            if (!positionList.Contains(i)) {
                                 ep.Score += w.Score;
+                                positionList.Add(i);
+                            }
                         }
                     }
                     foreach (Word syn in w.listSynonyms) {
@@ -212,8 +214,10 @@ namespace TheThingAboutTheSimpsons {
                         for (int i = 0; i < ep.summary.Length; i++) {
                             string resumeW = ep.summary[i];
                             if (syn.word == resumeW) {
-                                if (!positionList.Contains(i))
+                                if (!positionList.Contains(i)) {
                                     ep.Score += syn.Score;
+                                    positionList.Add(i);
+                                }
 
                             }
                         }
