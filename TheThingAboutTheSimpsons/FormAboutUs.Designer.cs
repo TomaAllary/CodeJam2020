@@ -130,12 +130,12 @@ namespace TheThingAboutTheSimpsons
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Impact", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Impact", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(265, 303);
+            this.label5.Location = new System.Drawing.Point(265, 309);
             this.label5.MaximumSize = new System.Drawing.Size(600, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(600, 270);
+            this.label5.Size = new System.Drawing.Size(600, 184);
             this.label5.TabIndex = 11;
             this.label5.Text = resources.GetString("label5.Text");
             // 

@@ -35,10 +35,13 @@ namespace TheThingAboutTheSimpsons {
         private void submitBtn_Click(object sender, EventArgs e) {
             foreach(string s in textInput.Text.Split(' '))
             {
-                if (!BlackListedWords.Contains(s.ToLower()))
-                    Sentence.Add(new Word(s, false));
+                if (!BlackListedWords.Contains(s.ToLower())) {
+                    Word word = new Word(s, false);
+                    Sentence.Add(word);
+                }
             }
-            ;
+
+            showResults();
         }
 
         private void aboutUsBtn_Click(object sender, EventArgs e)
@@ -101,14 +104,51 @@ namespace TheThingAboutTheSimpsons {
             */
         }
 
-        public void ParseInput(string text) {
-
-        }
-
         public List<Episode> Search() {
             List<Episode> episodesFounds = new List<Episode>();
 
             //do the thing
+            foreach (Episode ep in episodes) {
+                Dictionary<int, double> wordsFoundPos = new Dictionary<int, double>();//dictionary position + score
+
+                for (int i = 0; i < Sentence.Count; i++) {
+                    Word w = Sentence[i];
+                    foreach (string resumeW in ep.summary) {
+                        //compare the input word with the resume words
+                        if (w.word == resumeW) {
+                            wordsFoundPos.Add(i, w.Score);
+                        }
+                    }
+                    foreach(Word syn in w.listSynonyms) {
+                        //compare the input word synonyms with the resume words
+                        foreach (string resumeW in ep.summary) {
+                            if (syn.word == resumeW) {
+                                wordsFoundPos.Add(i, syn.Score);
+                            }
+                        }
+                    }
+                }
+
+
+                //Score attribution function here...
+                double avgDistBtwWord = 0;
+                double scoreSum = 0;
+                int nb = 0;
+                foreach(var elem in wordsFoundPos) {
+                    scoreSum += elem.Value;//adding score
+                    avgDistBtwWord += elem.Key;//adding distance
+                    nb++;
+                }
+
+                avgDistBtwWord /= nb;
+
+                ep.Score = (1 / avgDistBtwWord) * scoreSum;
+
+                //Seuil
+                if (ep.Score > 1)
+                    episodesFounds.Add(ep);
+
+            }
 
             return episodesFounds;
         }

@@ -9,17 +9,20 @@ namespace TheThingAboutTheSimpsons
 {
     class Word
     {
-        public int Score { get; set; }
+        public double Score { get; set; }
         public string word { get; set; }
-        public bool IsSynonym { get; set; }
 
-        List<Word> listSynonyms = new List<Word>();
+        public List<Word> listSynonyms = new List<Word>();
         public Word (string word, bool isSynonym)
         {
             this.word = word;
-            IsSynonym = isSynonym;
-            if (!isSynonym)
+            if (!isSynonym) {
+                Score = 1;
                 FindSynonyms();
+            }
+            else {
+                Score = 0.9;
+            }
         }
 
         public void FindSynonyms()
